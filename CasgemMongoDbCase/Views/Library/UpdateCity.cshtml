@@ -1,0 +1,28 @@
+﻿@model CasgemMongoDbCase.Models.City
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Update City</title>
+</head>
+<body>
+    <div class="container">
+        <br />
+        <br />
+        <h3>Şehir Güncelleme Sayfası</h3>
+        <br />
+        <form method="post">
+            <label>Şehir Adı Giriniz</label>
+            <input type="text" asp-for="Name" class="form-check" /><br />
+
+            <button class="btn btn-danger">Güncelle</button>
+        </form>
+    </div>
+</body>
+</html>

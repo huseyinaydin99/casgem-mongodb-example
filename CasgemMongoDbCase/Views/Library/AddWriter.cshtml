@@ -1,0 +1,39 @@
+﻿@model CasgemMongoDbCase.Models.WriterViewModel
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add Writer</title>
+</head>
+<body>
+    <div class="container">
+        <br />
+        <br />
+        <h3>Yazar Ekleme Sayfası</h3>
+        <br />
+        <form method="post">
+            <label>Yazar Adı Giriniz</label>
+            <input type="text" asp-for="Name" class="form-check" /><br />
+            <label>Yazar Yaşını Giriniz</label>
+            <input type="number" asp-for="Age" class="form-check" /><br />
+
+            <select class="form-check" asp-for="CityId">
+                <option value=" ">Şehir Seçiniz</option>
+                @foreach (var cities in ViewBag.CityList)
+                {
+                    <option value="@cities.Value">@cities.Text</option>
+                }
+            </select>
+            <br />
+            <button class="btn btn-danger">Ekle</button>
+        </form>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,42 @@
+﻿@model CasgemMongoDbCase.Models.BookWithWriter
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Update Book</title>
+</head>
+<body>
+    <div class="container">
+        <br />
+        <form method="post">
+            <label>Kitap Adı Giriniz</label>
+            <input type="text" asp-for="BookName" class="form-check" /><br />
+
+            <label>Kitap Yazar Id Giriniz</label><br />
+            <select class="form-check" asp-for="WriterId">
+                <option value=" ">Lütfen Yazar Seçiniz</option>
+                @foreach (var writer in ViewBag.WriterList)
+                {
+                    <option value="@writer.Value">@writer.Text</option>
+                }
+            </select>
+            <br />
+            <label>Kitap Sayfası Giriniz</label>
+            <input type="number" asp-for="PageNumber" class="form-check" /><br />
+            <label>Kitap Türü Giriniz</label>
+            <input type="text" asp-for="Type" class="form-check" /><br />
+            <label>Kitap Puanı Giriniz</label>
+            <input type="number" asp-for="Point" class="form-check" /><br />
+
+            <button class="btn btn-danger">Güncelle</button>
+        </form>
+    </div>
+</body>
+</html>
+

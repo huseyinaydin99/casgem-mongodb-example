@@ -1,0 +1,29 @@
+﻿@model CasgemMongoDbCase.Models.CityViewModel
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add City</title>
+</head>
+<body>
+    <div class="container">
+        <br />
+        <br />
+        <h3>Şehir Ekleme Sayfası</h3>
+        <br />
+        <form method="post">
+            <label>Şehir Adı Giriniz</label>
+            <input type="text" asp-for="Name" class="form-check" /><br />
+            
+            <button class="btn btn-danger">Ekle</button>
+        </form>
+    </div>
+</body>
+</html>
+

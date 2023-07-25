@@ -1,0 +1,50 @@
+﻿@model List<CasgemMongoDbCase.Models.BookWithWriter>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Data List</title>
+</head>
+<body>
+    <div class="container">
+        <br />
+        <br />
+        <br />
+        <br />
+        <h3>Kitap Listesi</h3>
+        
+        <table class="table table-bordered">
+            <tr>
+                <th>ID</th>
+                <th>Kitap Adı</th>
+                <th>Kitap Sayfası</th>
+                <th>Kitap Türü</th>
+                <th>Kitap Puanı</th>
+                <th>Kitap Yazar Adı</th>
+                <th>#</th>
+                <th>#</th>
+            </tr>
+            @foreach(var item in Model)
+            {
+                <tr>
+                <td>@item.Id</td>
+                <td>@item.BookName</td>
+                <td>@item.PageNumber</td>
+                <td>@item.Type</td>
+                <td>@item.Point</td>
+                <td>@item.Writers.Select(x=>x.Name).FirstOrDefault()</td>
+                <td><a href="/Library/UpdateBook/@item.Id" class="btn btn-success">Güncelle</a></td>
+                <td><a href="/Library/DeleteBook/@item.Id" class="btn btn-danger">Sil</a></td>
+                </tr>
+            }
+        </table>
+        <a href="/Library/AddBook" class="btn btn-outline-primary">Kitap Ekle</a>
+    </div>
+</body>
+</html>
